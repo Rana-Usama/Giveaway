@@ -40,7 +40,6 @@ function SignInScreen(props) {
       showIndicator(false);
       return true;
     }
-    props.navigation.navigate("HomeTab");
 
     try {
       // API INTEGRATION WILL COME HERE
@@ -89,7 +88,7 @@ function SignInScreen(props) {
           <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(4) }}>
             <MyAppButton
               title="התחבר"
-              onPress={() => props.navigation.navigate("SignInScreen")}
+              onPress={() => props.navigation.navigate("SelectionScreen")}
               padding={RFPercentage(1.8)}
               backgroundColor={Colors.green}
               borderColor={Colors.white}
@@ -103,6 +102,7 @@ function SignInScreen(props) {
             />
           </View>
 
+          {/* Social Media Login */}
           <View style={{ alignSelf: "center", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop: RFPercentage(5), width: "90%" }}>
             <TouchableOpacity
               style={{
