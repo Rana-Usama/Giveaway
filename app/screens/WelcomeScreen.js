@@ -13,7 +13,7 @@ function WelcomeScreen(props) {
   return (
     <Screen style={styles.screen}>
       {/* Image */}
-      <Image style={{ left: RFPercentage(3), width: RFPercentage(36), height: RFPercentage(31), marginTop: RFPercentage(5) }} source={require("../../assets/Images/bag.png")} />
+      <Image style={{ left: RFPercentage(4), width: RFPercentage(36), height: RFPercentage(31), marginTop: RFPercentage(5) }} source={require("../../assets/Images/bag.png")} />
 
       <Text style={{ marginTop: RFPercentage(5), color: Colors.primary, fontSize: RFPercentage(5), fontFamily: "VarelaRound_400Regular" }}>למסירה ב-</Text>
 
@@ -26,7 +26,7 @@ function WelcomeScreen(props) {
       <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(8) }}>
         <MyAppButton
           title="הַבָּא"
-          // onPress={() => props.navigation.navigate("SignInScreen")}
+          onPress={() => props.navigation.navigate("SignInScreen")}
           padding={RFPercentage(2)}
           backgroundColor={Colors.darkOrange}
           borderColor={Colors.white}
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "center",
-    backgroundColor: Colors.white,
+    backgroundColor: "#F2F2F2",
   },
 });
 

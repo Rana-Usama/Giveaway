@@ -7,6 +7,7 @@ import { RFPercentage } from "react-native-responsive-fontsize";
 
 //screens
 import WelcomeScreen from "./app/screens/WelcomeScreen";
+import SignInScreen from "./app/screens/SignInScreen";
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="WelcomeScreen">
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+        <Stack.Screen name="SignInScreen" component={SignInScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
