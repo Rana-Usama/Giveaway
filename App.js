@@ -2,18 +2,7 @@ import React from "react";
 import { View, ActivityIndicator } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import {
-  Poppins_100Thin,
-  Poppins_100Thin_Italic,
-  Poppins_200ExtraLight,
-  Poppins_300Light,
-  Poppins_400Regular,
-  Poppins_500Medium,
-  Poppins_600SemiBold,
-  Poppins_700Bold,
-  Poppins_800ExtraBold,
-  useFonts,
-} from "@expo-google-fonts/poppins";
+import { VarelaRound_400Regular, useFonts } from "@expo-google-fonts/varela-round";
 import { RFPercentage } from "react-native-responsive-fontsize";
 
 //screens
@@ -24,15 +13,7 @@ const Stack = createStackNavigator();
 export default function App() {
   // Font
   const [fontsLoaded] = useFonts({
-    Poppins_100Thin,
-    Poppins_100Thin_Italic,
-    Poppins_200ExtraLight,
-    Poppins_300Light,
-    Poppins_400Regular,
-    Poppins_500Medium,
-    Poppins_600SemiBold,
-    Poppins_700Bold,
-    Poppins_800ExtraBold,
+    VarelaRound_400Regular,
   });
 
   if (!fontsLoaded)
