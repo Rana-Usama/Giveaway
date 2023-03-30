@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView, TextInput } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
-
+import { Ionicons } from "@expo/vector-icons";
 //components
 import Screen from "./../components/Screen";
 import BottomTab from "../components/common/BottomTab";
-import { TextInput } from "react-native-gesture-handler";
 
 //config
 import Colors from "../config/Colors";
@@ -13,6 +12,7 @@ import Colors from "../config/Colors";
 function HomeScreen(props) {
   return (
     <Screen style={styles.screen}>
+      {/* Nav */}
       <View style={{ marginTop: RFPercentage(2), width: "90%", justifyContent: "center", alignItems: "center", flexDirection: "row" }}>
         <Image style={{ width: RFPercentage(7), height: RFPercentage(7) }} source={require("../../assets/Images/profile.png")} />
         <View
@@ -32,6 +32,41 @@ function HomeScreen(props) {
             <TextInput textAlign="right" style={{ width: "100%" }} placeholder="מה לחפש לך?" placeholderTextColor={"#3F8D79"} />
           </View>
         </View>
+      </View>
+
+      <View style={{ marginTop: RFPercentage(5), width: "90%", flexDirection: "row", justifyContent: "flex-start", alignItems: "center", alignSelf: "center" }}>
+        <TouchableOpacity activeOpacity={0.6}>
+          <Ionicons name="chevron-back-outline" style={{ fontSize: RFPercentage(3) }} color="black" />
+        </TouchableOpacity>
+        <Text style={{ marginLeft: RFPercentage(0.6), color: Colors.darkOrange, fontSize: RFPercentage(2.2) }}>צפה בהכל</Text>
+        <Text style={{ position: "absolute", right: 0, color: Colors.primary, fontSize: RFPercentage(3.2) }}>קטגוריות</Text>
+      </View>
+
+      <View style={{ marginTop: RFPercentage(5.2), width: "89%", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+        <TouchableOpacity
+          activeOpacity={0.6}
+          style={{ borderRadius: RFPercentage(2), width: RFPercentage(14), height: RFPercentage(14), backgroundColor: Colors.white, justifyContent: "center", alignItems: "center" }}
+        >
+          <Image style={{ width: RFPercentage(5), height: RFPercentage(5) }} source={require("../../assets/Images/c1.png")} />
+          <Text style={{ marginTop: RFPercentage(0.8), color: Colors.darkOrange, fontSize: RFPercentage(2) }}>ציוד רפואי</Text>
+          <Text style={{ marginTop: RFPercentage(0.8), color: Colors.green, fontSize: RFPercentage(2) }}>+102</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.6}
+          style={{ borderRadius: RFPercentage(2), width: RFPercentage(14), height: RFPercentage(14), backgroundColor: Colors.white, justifyContent: "center", alignItems: "center" }}
+        >
+          <Image style={{ width: RFPercentage(8.9), height: RFPercentage(5.8) }} source={require("../../assets/Images/c3.png")} />
+          <Text style={{ marginTop: RFPercentage(0.8), color: Colors.darkOrange, fontSize: RFPercentage(2) }}>בעלי חיים</Text>
+          <Text style={{ marginTop: RFPercentage(0.8), color: Colors.green, fontSize: RFPercentage(2) }}>+159</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.6}
+          style={{ borderRadius: RFPercentage(2), width: RFPercentage(14), height: RFPercentage(14), backgroundColor: Colors.white, justifyContent: "center", alignItems: "center" }}
+        >
+          <Image style={{ width: RFPercentage(9), height: RFPercentage(6) }} source={require("../../assets/Images/c2.png")} />
+          <Text style={{ marginTop: RFPercentage(0.8), color: Colors.darkOrange, fontSize: RFPercentage(2) }}>ריהוט</Text>
+          <Text style={{ marginTop: RFPercentage(0.8), color: Colors.green, fontSize: RFPercentage(2) }}>+2156</Text>
+        </TouchableOpacity>
       </View>
 
       {/* Bottom Tab */}
