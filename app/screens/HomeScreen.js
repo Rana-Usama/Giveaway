@@ -39,9 +39,13 @@ function HomeScreen(props) {
           <Ionicons name="chevron-back-outline" style={{ fontSize: RFPercentage(3) }} color="black" />
         </TouchableOpacity>
         <Text style={{ marginLeft: RFPercentage(0.6), color: Colors.darkOrange, fontSize: RFPercentage(2.2) }}>צפה בהכל</Text>
-        <Text style={{ position: "absolute", right: 0, color: Colors.primary, fontSize: RFPercentage(3.2) }}>קטגוריות</Text>
+
+        <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.navigate("ProductsScreen")} style={{ position: "absolute", right: 0 }}>
+          <Text style={{ color: Colors.primary, fontSize: RFPercentage(3.2) }}>קטגוריות</Text>
+        </TouchableOpacity>
       </View>
 
+      {/* Carts */}
       <View style={{ marginTop: RFPercentage(5.2), width: "89%", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
         <TouchableOpacity
           activeOpacity={0.6}
@@ -76,7 +80,7 @@ function HomeScreen(props) {
           style={{
             right: RFPercentage(1),
             top: RFPercentage(3.4),
-            backgroundColor: Colors.green,
+            backgroundColor: "#188142",
             width: RFPercentage(8),
             height: RFPercentage(8),
             borderRadius: RFPercentage(30),

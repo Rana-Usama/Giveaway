@@ -10,6 +10,7 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 import SignInScreen from "./app/screens/SignInScreen";
 import SelectionScreen from "./app/screens/SelectionScreen";
 import HomeScreen from "./app/screens/HomeScreen";
+import ProductsScreen from "./app/screens/ProductsScreen";
 
 const Stack = createStackNavigator();
 
@@ -28,11 +29,12 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="HomeScreen">
+      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="WelcomeScreen">
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
         <Stack.Screen name="SignInScreen" component={SignInScreen} />
         <Stack.Screen name="SelectionScreen" component={SelectionScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="ProductsScreen" component={ProductsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

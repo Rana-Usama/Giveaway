@@ -16,6 +16,7 @@ function SelectionScreen(props) {
           <Text style={{ marginTop: RFPercentage(14), color: Colors.primary, fontSize: RFPercentage(3.5), fontFamily: "VarelaRound_400Regular" }}>צהריים טובים חיים,</Text>
 
           {/* Selection Buttons */}
+          {/* First */}
           <TouchableOpacity
             activeOpacity={0.7}
             style={{
@@ -32,8 +33,10 @@ function SelectionScreen(props) {
               <Text style={{ textAlign: "center", color: Colors.white, fontSize: RFPercentage(3), fontFamily: "VarelaRound_400Regular" }}>מעונין / רוצה למסור</Text>
             </View>
           </TouchableOpacity>
+          {/* Second */}
           <TouchableOpacity
             activeOpacity={0.7}
+            onPress={() => props.navigation.navigate("HomeScreen")}
             style={{
               marginTop: RFPercentage(4),
               width: RFPercentage(30),
