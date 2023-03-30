@@ -35,7 +35,7 @@ function HomeScreen(props) {
       </View>
 
       <View style={{ marginTop: RFPercentage(5), width: "90%", flexDirection: "row", justifyContent: "flex-start", alignItems: "center", alignSelf: "center" }}>
-        <TouchableOpacity activeOpacity={0.6}>
+        <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.navigate("SelectionScreen")}>
           <Ionicons name="chevron-back-outline" style={{ fontSize: RFPercentage(3) }} color="black" />
         </TouchableOpacity>
         <Text style={{ marginLeft: RFPercentage(0.6), color: Colors.darkOrange, fontSize: RFPercentage(2.2) }}>צפה בהכל</Text>

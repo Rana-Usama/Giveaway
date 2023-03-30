@@ -11,6 +11,8 @@ import SignInScreen from "./app/screens/SignInScreen";
 import SelectionScreen from "./app/screens/SelectionScreen";
 import HomeScreen from "./app/screens/HomeScreen";
 import ProductsScreen from "./app/screens/ProductsScreen";
+import MapScreen from "./app/screens/MapScreen";
+import BottomTab from "./app/components/common/BottomTab";
 
 const Stack = createStackNavigator();
 
@@ -35,6 +37,7 @@ export default function App() {
         <Stack.Screen name="SelectionScreen" component={SelectionScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="ProductsScreen" component={ProductsScreen} />
+        <Stack.Screen name="MapScreen" component={MapScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
