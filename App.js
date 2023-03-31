@@ -12,9 +12,10 @@ import SelectionScreen from "./app/screens/SelectionScreen";
 import HomeScreen from "./app/screens/HomeScreen";
 import ProductsScreen from "./app/screens/ProductsScreen";
 import MapScreen from "./app/screens/MapScreen";
-import BottomTab from "./app/components/common/BottomTab";
 
 const Stack = createStackNavigator();
+
+console.disableYellowBox = true;
 
 export default function App() {
   // Font

@@ -10,6 +10,8 @@ import BottomTab from "../components/common/BottomTab";
 import Colors from "../config/Colors";
 
 function MapScreen(props) {
+  const [activeTab, setActiveTab] = useState("MapScreen");
+
   return (
     <Screen style={styles.screen}>
       {/* Nav */}
@@ -56,7 +58,7 @@ function MapScreen(props) {
         >
           <Image style={{ width: RFPercentage(3), height: RFPercentage(3) }} source={require("../../assets/Images/plus.png")} />
         </TouchableOpacity>
-        <BottomTab />
+        <BottomTab activeTab={activeTab} setActiveTab={setActiveTab} />
       </View>
     </Screen>
   );

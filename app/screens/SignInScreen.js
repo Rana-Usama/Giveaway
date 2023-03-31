@@ -40,7 +40,7 @@ function SignInScreen(props) {
       showIndicator(false);
       return true;
     }
-
+    props.navigation.navigate("SelectionScreen");
     try {
       // API INTEGRATION WILL COME HERE
     } catch (error) {
@@ -88,7 +88,7 @@ function SignInScreen(props) {
           <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(4) }}>
             <MyAppButton
               title="התחבר"
-              onPress={() => props.navigation.navigate("SelectionScreen")}
+              onPress={() => handleLogin()}
               padding={RFPercentage(1.8)}
               backgroundColor={Colors.green}
               borderColor={Colors.white}
