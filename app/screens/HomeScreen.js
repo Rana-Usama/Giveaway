@@ -5,17 +5,47 @@ import { Ionicons } from "@expo/vector-icons";
 //components
 import Screen from "./../components/Screen";
 import BottomTab from "../components/common/BottomTab";
+import MyAppButton from "../components/common/MyAppButton";
 
 //config
 import Colors from "../config/Colors";
 
 function HomeScreen(props) {
+  const CartsData = [
+    {
+      image1Source: require("../../assets/Images/c1.png"),
+      image2Source: require("../../assets/Images/c2.png"),
+      image3Source: require("../../assets/Images/c3.png"),
+      image1Label: "ציוד רפואי",
+      image2Label: "ציוד רפואי",
+      image3Label: "ציוד רפואי",
+    },
+    {
+      image1Source: require("../../assets/Images/c1.png"),
+      image2Source: require("../../assets/Images/c4.png"),
+      image3Source: require("../../assets/Images/c5.png"),
+      image1Label: "ציוד רפואי",
+      image2Label: "ציוד רפואי",
+      image3Label: "ציוד רפואי",
+    },
+    {
+      image1Source: require("../../assets/Images/c3.png"),
+      image2Source: require("../../assets/Images/c2.png"),
+      image3Source: require("../../assets/Images/c5.png"),
+      image1Label: "ציוד רפואי",
+      image2Label: "ציוד רפואי",
+      image3Label: "ציוד רפואי",
+    },
+  ];
+
   return (
     <Screen style={styles.screen}>
       {/* Nav */}
       <View style={{ marginTop: RFPercentage(2), width: "90%", justifyContent: "center", alignItems: "center", flexDirection: "row" }}>
         <Image style={{ width: RFPercentage(7), height: RFPercentage(7) }} source={require("../../assets/Images/profile.png")} />
-        <View
+        <TouchableOpacity
+          activeOpacity={0.6}
+          onPress={() => props.navigation.navigate("ProductsScreen")}
           style={{
             width: RFPercentage(34),
             height: RFPercentage(5.5),
@@ -28,70 +58,67 @@ function HomeScreen(props) {
           }}
         >
           <View style={{ width: "90%", justifyContent: "center", alignItems: "center", flexDirection: "row" }}>
-            <Image style={{ width: RFPercentage(2.2), height: RFPercentage(2.2), position: "absolute", left: 0 }} source={require("../../assets/Images/search.png")} />
-            <TextInput textAlign="right" style={{ width: "100%" }} placeholder="מה לחפש לך?" placeholderTextColor={"#3F8D79"} />
+            <Image style={{ width: RFPercentage(2), height: RFPercentage(2), position: "absolute", left: 0 }} source={require("../../assets/Images/search.png")} />
+            <Text style={{ position: "absolute", right: 0, color: Colors.green }}>מה לחפש לך?</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+
+      <ScrollView style={{ flex: 1, width: "100%" }}>
+        <View style={{ justifyContent: "center", alignItems: "center", width: "100%" }}>
+          <View style={{ marginTop: RFPercentage(4.5), width: "90%", flexDirection: "row", justifyContent: "flex-start", alignItems: "center" }}>
+            <Text style={{ fontSize: RFPercentage(2), color: Colors.green, fontWeight: "bold" }}>Find Anything of You Need!</Text>
+          </View>
+
+          {/* Carts */}
+          {CartsData.map((item, i) => (
+            <View key={i} style={{ marginTop: RFPercentage(4), width: "89%", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+              <TouchableOpacity
+                activeOpacity={0.6}
+                style={{ borderRadius: RFPercentage(2), width: RFPercentage(14), height: RFPercentage(14), backgroundColor: Colors.white, justifyContent: "center", alignItems: "center" }}
+              >
+                <Image style={{ width: RFPercentage(4), height: RFPercentage(4) }} source={item.image1Source} />
+                <Text style={{ marginTop: RFPercentage(0.8), color: Colors.darkOrange, fontSize: RFPercentage(2) }}>{item.image1Label}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.6}
+                style={{ borderRadius: RFPercentage(2), width: RFPercentage(14), height: RFPercentage(14), backgroundColor: Colors.white, justifyContent: "center", alignItems: "center" }}
+              >
+                <Image style={{ width: RFPercentage(7.9), height: RFPercentage(4.8) }} source={item.image2Source} />
+                <Text style={{ marginTop: RFPercentage(0.8), color: Colors.darkOrange, fontSize: RFPercentage(2) }}>{item.image2Label}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.6}
+                style={{ borderRadius: RFPercentage(2), width: RFPercentage(14), height: RFPercentage(14), backgroundColor: Colors.white, justifyContent: "center", alignItems: "center" }}
+              >
+                <Image style={{ width: RFPercentage(8), height: RFPercentage(5) }} source={item.image3Source} />
+                <Text style={{ marginTop: RFPercentage(0.8), color: Colors.darkOrange, fontSize: RFPercentage(2) }}>{item.image3Label}</Text>
+              </TouchableOpacity>
+            </View>
+          ))}
+
+          <Text style={{ marginTop: RFPercentage(4.5), color: Colors.darkOrange, fontSize: RFPercentage(2.1), fontWeight: "bold" }}>And Much More!</Text>
+
+          {/* Button */}
+          <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(4) }}>
+            <MyAppButton
+              title="Let's Go!"
+              onPress={() => props.navigation.navigate("ProductsScreen")}
+              padding={RFPercentage(1.8)}
+              backgroundColor={Colors.green}
+              borderColor={Colors.white}
+              borderWidth={RFPercentage(0.2)}
+              color={Colors.white}
+              bold={false}
+              fontSize={RFPercentage(2)}
+              fontFamily={"VarelaRound_400Regular"}
+              borderRadius={RFPercentage(20)}
+              width={"60%"}
+            />
           </View>
         </View>
-      </View>
-
-      <View style={{ marginTop: RFPercentage(5), width: "90%", flexDirection: "row", justifyContent: "flex-start", alignItems: "center", alignSelf: "center" }}>
-        <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.navigate("SelectionScreen")}>
-          <Ionicons name="chevron-back-outline" style={{ fontSize: RFPercentage(3) }} color="black" />
-        </TouchableOpacity>
-        <Text style={{ marginLeft: RFPercentage(0.6), color: Colors.darkOrange, fontSize: RFPercentage(2.2) }}>צפה בהכל</Text>
-
-        <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.navigate("ProductsScreen")} style={{ position: "absolute", right: 0 }}>
-          <Text style={{ color: Colors.primary, fontSize: RFPercentage(3.2) }}>קטגוריות</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Carts */}
-      <View style={{ marginTop: RFPercentage(5.2), width: "89%", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-        <TouchableOpacity
-          activeOpacity={0.6}
-          style={{ borderRadius: RFPercentage(2), width: RFPercentage(14), height: RFPercentage(14), backgroundColor: Colors.white, justifyContent: "center", alignItems: "center" }}
-        >
-          <Image style={{ width: RFPercentage(5), height: RFPercentage(5) }} source={require("../../assets/Images/c1.png")} />
-          <Text style={{ marginTop: RFPercentage(0.8), color: Colors.darkOrange, fontSize: RFPercentage(2) }}>ציוד רפואי</Text>
-          <Text style={{ marginTop: RFPercentage(0.8), color: Colors.green, fontSize: RFPercentage(2) }}>+102</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          activeOpacity={0.6}
-          style={{ borderRadius: RFPercentage(2), width: RFPercentage(14), height: RFPercentage(14), backgroundColor: Colors.white, justifyContent: "center", alignItems: "center" }}
-        >
-          <Image style={{ width: RFPercentage(8.9), height: RFPercentage(5.8) }} source={require("../../assets/Images/c3.png")} />
-          <Text style={{ marginTop: RFPercentage(0.8), color: Colors.darkOrange, fontSize: RFPercentage(2) }}>בעלי חיים</Text>
-          <Text style={{ marginTop: RFPercentage(0.8), color: Colors.green, fontSize: RFPercentage(2) }}>+159</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          activeOpacity={0.6}
-          style={{ borderRadius: RFPercentage(2), width: RFPercentage(14), height: RFPercentage(14), backgroundColor: Colors.white, justifyContent: "center", alignItems: "center" }}
-        >
-          <Image style={{ width: RFPercentage(9), height: RFPercentage(6) }} source={require("../../assets/Images/c2.png")} />
-          <Text style={{ marginTop: RFPercentage(0.8), color: Colors.darkOrange, fontSize: RFPercentage(2) }}>ריהוט</Text>
-          <Text style={{ marginTop: RFPercentage(0.8), color: Colors.green, fontSize: RFPercentage(2) }}>+2156</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Bottom Tab */}
-      <View style={{ width: "100%", position: "absolute", bottom: 0, justifyContent: "center", alignItems: "center" }}>
-        <TouchableOpacity
-          activeOpacity={0.8}
-          style={{
-            right: RFPercentage(1),
-            top: RFPercentage(3.4),
-            backgroundColor: "#188142",
-            width: RFPercentage(8),
-            height: RFPercentage(8),
-            borderRadius: RFPercentage(30),
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Image style={{ width: RFPercentage(3), height: RFPercentage(3) }} source={require("../../assets/Images/plus.png")} />
-        </TouchableOpacity>
-        <BottomTab />
-      </View>
+        <View style={{ marginBottom: RFPercentage(25) }} />
+      </ScrollView>
     </Screen>
   );
 }

@@ -13,7 +13,7 @@ function BottomTab(props) {
     <ImageBackground style={{ width: "100%", height: RFPercentage(10), flexDirection: "row", justifyContent: "center", alignItems: "center" }} source={require("../../../assets/Images/bt.png")}>
       {/* Left Buttons */}
       <View style={{ width: "45%", position: "absolute", left: 0, flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
-        <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")} activeOpacity={0.6} style={{ justifyContent: "center", alignItems: "center" }}>
+        <TouchableOpacity onPress={() => navigation.navigate("ProductsScreen")} activeOpacity={0.6} style={{ justifyContent: "center", alignItems: "center" }}>
           <Foundation name="home" style={{ fontSize: RFPercentage(3.2) }} color="#8E8E93" />
           <Text style={{ marginTop: RFPercentage(0.4), color: "#828282", fontSize: RFPercentage(1.8) }}>בית</Text>
         </TouchableOpacity>

@@ -19,6 +19,7 @@ function SelectionScreen(props) {
           {/* First */}
           <TouchableOpacity
             activeOpacity={0.7}
+            onPress={() => props.navigation.navigate("AddProductScreen")}
             style={{
               marginTop: RFPercentage(12),
               width: RFPercentage(30),

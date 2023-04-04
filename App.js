@@ -12,6 +12,8 @@ import SelectionScreen from "./app/screens/SelectionScreen";
 import HomeScreen from "./app/screens/HomeScreen";
 import ProductsScreen from "./app/screens/ProductsScreen";
 import MapScreen from "./app/screens/MapScreen";
+import DetailsPageScreen from "./app/screens/DetailsPageScreen";
+import AddProductScreen from "./app/screens/AddProductScreen";
 
 const Stack = createStackNavigator();
 
@@ -39,6 +41,8 @@ export default function App() {
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="ProductsScreen" component={ProductsScreen} />
         <Stack.Screen name="MapScreen" component={MapScreen} />
+        <Stack.Screen name="DetailsPageScreen" component={DetailsPageScreen} />
+        <Stack.Screen name="AddProductScreen" component={AddProductScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
