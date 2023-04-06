@@ -10,10 +10,10 @@ import * as ImagePicker from "expo-image-picker";
 //components
 import Screen from "./../components/Screen";
 import InputField from "./../components/common/InputField";
+import MyAppButton from "../components/common/MyAppButton";
 
 //config
 import Colors from "../config/Colors";
-import MyAppButton from "../components/common/MyAppButton";
 
 function AddProductScreen(props) {
   const [serveas, setserveas] = useState("");
@@ -23,19 +23,19 @@ function AddProductScreen(props) {
   // Input fields
   const [inputField, SetInputField] = useState([
     {
-      placeholder: "Name Of the Product",
+      placeholder: "שם המוצר",
       value: "",
     },
     {
-      placeholder: "Price",
+      placeholder: "מחיר",
       value: "",
     },
     {
-      placeholder: "City/State/Postal Code",
+      placeholder: "עיר/מדינה/מיקוד",
       value: "",
     },
     {
-      placeholder: "Ad Description",
+      placeholder: "תיאור מודעה",
       placeholderAtStart: true,
       height: RFPercentage(20),
       multiLine: true,
@@ -94,11 +94,11 @@ function AddProductScreen(props) {
             <Ionicons name="chevron-back-outline" style={{ fontSize: RFPercentage(3) }} color={Colors.white} />
           </LinearGradient>
         </TouchableOpacity>
-        <Text style={{ color: Colors.primary, fontSize: RFPercentage(2.3) }}>Add Product</Text>
+        <Text style={{ color: Colors.primary, fontSize: RFPercentage(2.3) }}>הוסף מוצר</Text>
       </View>
 
       <View style={{ marginTop: RFPercentage(6), width: "90%", justifyContent: "center", alignItems: "flex-start" }}>
-        <Text style={{ color: Colors.black, fontSize: RFPercentage(2.2), fontWeight: "bold" }}>Ad Details :</Text>
+        <Text style={{ color: Colors.black, fontSize: RFPercentage(2.2), fontWeight: "bold" }}>פרטי מודעה:</Text>
       </View>
 
       {/* Input Fields */}
@@ -120,13 +120,14 @@ function AddProductScreen(props) {
               <View style={{ width: "90%" }}>
                 <RNPickerSelect
                   onValueChange={(value) => setserveas(value)}
-                  placeholder={{ label: "Product Type" }}
+                  placeholder={{ label: "סוג המוצר" }}
                   Icon={Platform.OS == "android" ? null : iconComponent}
                   items={[
-                    { label: "Apartment", value: "Apartment" },
-                    { label: "Studio", value: "Studio" },
-                    { label: "Duplex", value: "Duplex" },
-                    { label: "Villa", value: "Villa" },
+                    { label: "Furniture Office", value: "Furniture Office" },
+                    { label: "House Furniture", value: "House Furniture" },
+                    { label: "Tables", value: "Tables" },
+                    { label: "Laptopes", value: "Laptopes" },
+                    { label: "Mobiles", value: "Mobiles" },
                   ]}
                 />
               </View>
@@ -147,19 +148,11 @@ function AddProductScreen(props) {
               <View style={{ width: "90%" }}>
                 <RNPickerSelect
                   onValueChange={(value) => setserveas(value)}
-                  placeholder={{ label: "Select Your Location" }}
+                  placeholder={{ label: "בחר את המיקום שלך" }}
                   Icon={Platform.OS == "android" ? null : iconComponent}
                   items={[
-                    { label: "Hurghada", value: "Hurghada" },
-                    { label: "Sahl Hasheesh", value: "Sahl Hasheesh" },
-                    { label: "Makadi", value: "Makadi" },
-                    { label: "El Gouna", value: "El Gouna" },
-                    { label: "Magawish", value: "Magawish" },
-                    { label: "El Ahyaa", value: "El Ahyaa" },
-                    { label: "El Helal", value: "El Helal" },
-                    { label: "El Kawther", value: "El Kawther" },
-                    { label: "El Dahar", value: "El Dahar" },
-                    { label: "Intercontinental District", value: "Intercontinental District" },
+                    { label: "New York Street", value: "New York Street" },
+                    { label: "Bridge 2 New York", value: "Bridge 2 New York" },
                   ]}
                 />
               </View>

@@ -51,7 +51,7 @@ function ProductsScreen(props) {
       </View>
 
       <View style={{ marginTop: RFPercentage(6), width: "90%", flexDirection: "row", justifyContent: "flex-end", alignItems: "center" }}>
-        <Text style={{ position: "absolute", left: 0, color: Colors.primary, fontSize: RFPercentage(2.2) }}>Select Location</Text>
+        <Text style={{ position: "absolute", left: 0, color: Colors.primary, fontSize: RFPercentage(2.2) }}>תבחר מיקום</Text>
         <TouchableOpacity
           activeOpacity={0.8}
           style={{
@@ -69,29 +69,21 @@ function ProductsScreen(props) {
           <View style={{ width: "90%" }}>
             <RNPickerSelect
               onValueChange={(value) => setserveas(value)}
-              placeholder={{ label: "Location" }}
+              placeholder={{ label: "מקום" }}
               Icon={Platform.OS == "android" ? null : iconComponent}
               items={[
-                { label: "Hurghada", value: "Hurghada" },
-                { label: "Sahl Hasheesh", value: "Sahl Hasheesh" },
-                { label: "Makadi", value: "Makadi" },
-                { label: "El Gouna", value: "El Gouna" },
-                { label: "Magawish", value: "Magawish" },
-                { label: "El Ahyaa", value: "El Ahyaa" },
-                { label: "El Helal", value: "El Helal" },
-                { label: "El Kawther", value: "El Kawther" },
-                { label: "El Dahar", value: "El Dahar" },
-                { label: "Intercontinental District", value: "Intercontinental District" },
+                { label: "New York Street", value: "New York Street" },
+                { label: "Bridge 2 New York", value: "Bridge 2 New York" },
               ]}
             />
           </View>
         </TouchableOpacity>
       </View>
 
-      <ScrollView style={{ flex: 1, width: "100%" }}>
+      <ScrollView style={{ flex: 1, width: "100%", marginTop: RFPercentage(5) }}>
         <View style={{ justifyContent: "center", alignItems: "center", width: "100%" }}>
           {/* Carts */}
-          <View style={{ marginTop: RFPercentage(6), width: "90%", justifyContent: "flex-start", alignItems: "flex-start" }}>
+          <View style={{ width: "90%", justifyContent: "flex-start", alignItems: "flex-start" }}>
             <Text style={{ color: Colors.primary, fontSize: RFPercentage(3), fontFamily: "VarelaRound_400Regular" }}>קטגוריות</Text>
           </View>
 

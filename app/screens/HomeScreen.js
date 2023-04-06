@@ -26,7 +26,7 @@ function HomeScreen(props) {
       image3Source: require("../../assets/Images/c5.png"),
       image1Label: "ציוד רפואי",
       image2Label: "ציוד רפואי",
-      image3Label: "ציוד רפואי",
+      image3Label: "אלקטרוניקה",
     },
     {
       image1Source: require("../../assets/Images/c3.png"),
@@ -34,7 +34,7 @@ function HomeScreen(props) {
       image3Source: require("../../assets/Images/c5.png"),
       image1Label: "ציוד רפואי",
       image2Label: "ציוד רפואי",
-      image3Label: "ציוד רפואי",
+      image3Label: "אלקטרוניקה",
     },
   ];
 
@@ -42,7 +42,9 @@ function HomeScreen(props) {
     <Screen style={styles.screen}>
       {/* Nav */}
       <View style={{ marginTop: RFPercentage(2), width: "90%", justifyContent: "center", alignItems: "center", flexDirection: "row" }}>
-        <Image style={{ width: RFPercentage(7), height: RFPercentage(7) }} source={require("../../assets/Images/profile.png")} />
+        <TouchableOpacity activeOpacity={0.6} style={{ position: "absolute", left: 0 }} onPress={() => props.navigation.navigate("SelectionScreen")}>
+          <Ionicons name="chevron-back-outline" style={{ fontSize: RFPercentage(3) }} color="black" />
+        </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={0.6}
           onPress={() => props.navigation.navigate("ProductsScreen")}
@@ -67,7 +69,7 @@ function HomeScreen(props) {
       <ScrollView style={{ flex: 1, width: "100%" }}>
         <View style={{ justifyContent: "center", alignItems: "center", width: "100%" }}>
           <View style={{ marginTop: RFPercentage(4.5), width: "90%", flexDirection: "row", justifyContent: "flex-start", alignItems: "center" }}>
-            <Text style={{ fontSize: RFPercentage(2), color: Colors.green, fontWeight: "bold" }}>Find Anything of You Need!</Text>
+            <Text style={{ fontSize: RFPercentage(2), color: Colors.green, fontWeight: "bold" }}>מצא כל מה שאתה צריך!</Text>
           </View>
 
           {/* Carts */}
@@ -97,12 +99,12 @@ function HomeScreen(props) {
             </View>
           ))}
 
-          <Text style={{ marginTop: RFPercentage(4.5), color: Colors.darkOrange, fontSize: RFPercentage(2.1), fontWeight: "bold" }}>And Much More!</Text>
+          <Text style={{ marginTop: RFPercentage(4.5), color: Colors.darkOrange, fontSize: RFPercentage(2.1), fontWeight: "bold" }}>ועוד הרבה!</Text>
 
           {/* Button */}
           <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(4) }}>
             <MyAppButton
-              title="Let's Go!"
+              title="בוא נלך!"
               onPress={() => props.navigation.navigate("ProductsScreen")}
               padding={RFPercentage(1.8)}
               backgroundColor={Colors.green}
