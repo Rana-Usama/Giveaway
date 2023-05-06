@@ -54,18 +54,10 @@ function AddProductScreen(props) {
   };
 
   // Image Picker
-  useEffect(() => {
-    (async () => {
-      if (Platform.OS !== "web") {
-        const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-        if (status !== "granted") {
-          alert("Sorry, we need camera roll permissions to make this work!");
-        }
-      }
-    })();
-  }, []);
+  const [image, setImage] = useState(null);
 
   const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
@@ -75,8 +67,8 @@ function AddProductScreen(props) {
 
     console.log(result);
 
-    if (!result.cancelled) {
-      setSelectedImage(result.uri);
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
     }
   };
 
@@ -180,45 +172,50 @@ function AddProductScreen(props) {
               ))}
             </View>
 
-            <View style={{ marginTop: RFPercentage(6), width: "88%", justifyContent: "center", alignItems: "flex-start" }}>
-              <Text style={{ color: Colors.darkOrange, fontSize: RFPercentage(2.1) }}>Upload from Gallery by clicking on the box!</Text>
+            <View style={{ marginTop: RFPercentage(6), width: "88%", justifyContent: "center", alignItems: "flex-end" }}>
+              <Text style={{ color: Colors.darkOrange, fontSize: RFPercentage(2.1) }}>הוספת תמונות:</Text>
             </View>
 
             {/* Image Picker */}
             <TouchableOpacity
               onPress={pickImage}
+              activeOpacity={0.6}
               style={{
                 width: "88%",
                 alignItems: "center",
                 justifyContent: "center",
                 borderColor: Colors.green,
-                borderWidth: RFPercentage(0.1),
+                borderWidth: RFPercentage(0.2),
                 marginTop: RFPercentage(3),
                 borderRadius: RFPercentage(2),
                 height: RFPercentage(30),
+                overflow: "hidden",
               }}
             >
-              {selectedImage && <Image source={{ uri: selectedImage }} style={{ borderRadius: RFPercentage(2), width: "100%", height: RFPercentage(30) }} />}
+              {image ? (
+                <Image source={{ uri: image }} style={{ width: "100%", height: "100%" }} />
+              ) : (
+                <Image style={{ width: RFPercentage(4), height: RFPercentage(4) }} source={require("../../assets/Images/add.png")} />
+              )}
             </TouchableOpacity>
 
             {/* Button */}
-            <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(4) }}>
-              <MyAppButton
-                title="Publish Product"
-                onPress={() => props.navigation.navigate("SelectionScreen")}
-                padding={RFPercentage(1.8)}
-                backgroundColor={Colors.green}
-                borderColor={Colors.white}
-                borderWidth={RFPercentage(0.2)}
-                color={Colors.white}
-                bold={false}
-                fontSize={RFPercentage(2)}
-                fontFamily={"VarelaRound_400Regular"}
-                borderRadius={RFPercentage(20)}
-                width={"80%"}
-              />
-            </View>
-
+            <TouchableOpacity
+              activeOpacity={0.8}
+              style={{
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+                marginTop: RFPercentage(6),
+                width: "70%",
+                height: RFPercentage(8),
+                backgroundColor: "#4F8472",
+                borderRadius: RFPercentage(2),
+              }}
+            >
+              <Image style={{ width: RFPercentage(4), height: RFPercentage(4) }} source={require("../../assets/Images/heart.png")} />
+              <Text style={{ marginLeft: RFPercentage(1), color: Colors.white, fontSize: RFPercentage(2.4), fontFamily: "VarelaRound_400Regular" }}>מוסר.ת מכל ה-</Text>
+            </TouchableOpacity>
             <View style={{ marginBottom: RFPercentage(4) }} />
           </View>
         </ScrollView>
